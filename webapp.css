@@ -41,23 +41,11 @@ body {
 	border-radius: 50%
 }
 
-.addNewEvent {
-
-	color: white;
-  position: absolute;
-  top: 5%;
-  left: 10%;
-	font-size: 50px;
-	height: 60px;
-	width:60px;
-	background-color: #3498DB;
-	border: none;
-	border-radius: 50%;
-
-}
-
-.addNewEvent:hover, .addNewEvent:focus {
-		background-color: #2980B9;
+#newEventButton {
+position:absolute;
+top: 5%;
+left: 10%;
+border-radius: 50%;
 
 }
 
@@ -122,14 +110,18 @@ body {
 /* The search field when it gets focus/clicked on */
 #filterHobbyInput:focus {outline: 3px solid #ddd;}
 
+	/*stacking fieldsets above each other*/
+	position: relative;
+}
 
 /*form styles*/
 #createNewEventForm {
-	width: 400px;
-	margin: 50px auto;
+  display: none;
+	width: inherit;
+	margin: inherit;
 	text-align: center;
 	position: relative;
-	
+
 
 }
 #createNewEventForm fieldset {
@@ -141,7 +133,10 @@ body {
 	box-sizing: border-box;
 	width: 80%;
 	margin: 0 10%;
+}
 
-	/*stacking fieldsets above each other*/
-	position: relative;
+.formBlock {
+	display: none;
+	width: 250px;
+	margin: 10px;
 }

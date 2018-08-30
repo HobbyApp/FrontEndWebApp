@@ -13,11 +13,18 @@ function showOwnerOptions() {
 function showHobbies() {
   document.getElementById("filterHobbies").classList.toggle("show");
 }
-//Thsi one of for the add addNewEventForm
-function addNewEventForm() {
- document.getElementById("createNewEventForm").classList.toggle("show");
+//Opens new event form
+function newEvent() {
+  var x = document.getElementById("createNewEventForm");
+      if (x.style.display === "none") {
+          x.style.display = "block";
+      } else {
+          x.style.display = "none";
+      }
+
 
 }
+
 
 
 // Close the dropdown menu if the user clicks outside of it

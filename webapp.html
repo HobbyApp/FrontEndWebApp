@@ -10,29 +10,32 @@
       <center><h1>Hobby Inc.</h1></center>
       <center><p>Find Your Hobby</p></center>
       <img src="https://placeimg.com/60/60/people" class="ribbon"/>
-      <button id="addNewEvent" type="button" class="addNewEvent" onclick="addNewEventForm()"> + </button>
+      <button id="newEventButton" type="button" onclick="newEvent()">+</button>
+
   </div>
 
 <!--This is the new event form-->
+<div id="formBlock">
+  <form id="createNewEventForm">
+    <fieldset>
+        Event Name:<br>
+      <input name="newEventName" type="text"><br>
+      hobby:<br>
+      <select name="hobbies">
+        <option value="bikes">Bikes</option>
+        <option value="jetSki">Jet Ski</option>
+        <option value="flying">Flying</option>
+        <option value="basketWeaving">Basket Weaving</option>
+      </select><br>
+      Location:<br>
+      <input name ="newEventLocation" type="text"><br>
+      Event Date:<br>
+      <input type="date" name="newEventDate"><br>
+      <input type="submit"><br>
+    </fieldset>
+  </form>
+</div>
 
-<form id="createNewEventForm">
-  <fieldset>
-      Event Name:<br>
-    <input name="newEventName" type="text"><br>
-    hobby:<br>
-    <select name="hobbies">
-      <option value="bikes">Bikes</option>
-      <option value="jetSki">Jet Ski</option>
-      <option value="flying">Flying</option>
-      <option value="basketWeaving">Basket Weaving</option>
-    </select><br>
-    Location:<br>
-    <input name ="newEventLocation" type="text"><br>
-    Event Date:<br>
-    <input type="date" name="newEventDate"><br>
-    <input type="submit"><br>
-  </fieldset>
-</form>
 
 
     <center><div class="dropdown">
