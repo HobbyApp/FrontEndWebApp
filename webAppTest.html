@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Hobby Inc.</title>
+  <link rel="stylesheet" type="text/css" href="webapp.css">
+
+</head>
+
+  <div class="container">
+      <center><h1>Hobby Inc.</h1></center>
+      <center><p>Find Your Hobby</p></center>
+      <img src="https://placeimg.com/60/60/people" class="ribbon"/>
+      <button id="newEventButton" type="button" onclick="newEvent()">+</button>
+
+  </div>
+
+<!--This is the New Event form-->
+<div id="formBlock">
+  <form id="createNewEventForm">
+    <fieldset>
+        Event Name:<br>
+      <input name="newEventName" type="text"><br>
+      hobby:<br>
+      <select name="hobbies">
+        <option value="bikes">Bikes</option>
+        <option value="jetSki">Jet Ski</option>
+        <option value="flying">Flying</option>
+        <option value="basketWeaving">Basket Weaving</option>
+      </select><br>
+      Location:<br>
+      <input name ="newEventLocation" type="text"><br>
+      Event Date:<br>
+      <input type="date" name="newEventDate"><br>
+      <input type="submit"><br>
+    </fieldset>
+  </form>
+</div>
+
+
+
+    <div class="dropdown">
+      <button onclick="showDistanceOptions()" class="dropbtn">Distance</button>
+      <div id="filterDistance" class="dropdown-content">
+        <a href="#">Distance1</a>
+        <a href="#">Distance2</a>
+        <a href="#">Distance3</a>
+      </div>
+      <button onclick="showOwnerOptions()" class="dropbtn">Event Owner</button>
+      <div id="filterMyEvents" class="dropdown-content">
+        <a href="#">MyEvents</a>
+        <a href="#">AllEvents</a>
+        <a href="#">FriendsEvents</a>
+      </div>
+      <button onclick="showHobbies()" class="dropbtn">Hobby</button>
+ <div id="filterHobbies" class="dropdown-content">
+   <input type="text" placeholder="What Hobby are you looking for?" id="filterHobbyInput" onkeyup="filterFunction()">
+   <a href="#Hobby1">Hobby1</a>
+   <a href="#Hobby999">Hobby999</a>
+   <a href="#Hobby99999">Hobby99999</a>
+   <a href="#Hobby999999999">Hobby999999999</a>
+   <a href="#Hobby4">Hobby4</a>
+   <a href="#Hobby5">Hobby5</a>
+   <a href="#Hobby10">Hobby10</a>
+ </div>
+</div>
+
+
+
+<script src="webapp.js"></script>
+</html>

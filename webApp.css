@@ -1,0 +1,56 @@
+/*custom fonts*/
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+
+html {
+	height: 100%;
+	/*Image only BG fallback*/
+
+	/*background = gradient + image pattern combo*/
+	background:
+		linear-gradient(rgba(196, 102, 0, 0.6), rgba(155, 89, 182, 0.6));
+}
+
+body {
+	font-family: montserrat, arial, verdana;
+
+}
+
+/*form styles*/
+#createNewEventForm {
+  position:fixed;
+	width: 100%;
+	margin:50px auto;
+	text-align: center;
+  z-index: 1;
+  top: 50px;
+}
+
+#createNewEventForm fieldset {
+	background: white;
+	border: 0 none;
+	border-radius: 3px;
+	box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+	box-sizing: border-box;
+	width: 100%;
+
+}
+
+/*profile pic styles*/
+.ribbon {
+  position:absolute;
+  top: 5%;
+  right: 10%;
+	border-radius: 50%
+}
+
+/*table style */
+#feed {
+  font-family: montserrat, arial, verdana;
+  background-image: url(https://placeimg.com/640/550/any);
+	border: 0 none;
+	border-radius: 3px;
+	box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+	box-sizing: border-box;
+	width: 80%;
+  text-align: left;
+}
