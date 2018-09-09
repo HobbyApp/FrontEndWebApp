@@ -8,3 +8,13 @@ function newEvent() {
           x.style.display = "none";
         }
   }
+
+//opens filterForm onClick
+function openFilter() {
+  var y = document.getElementById("filterForm");
+   if (y.style.display === "none") {
+     y.style.display = "block";
+   } else {
+     y.style.display = "none";
+   }
+}

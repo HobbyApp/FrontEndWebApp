@@ -11,7 +11,7 @@
       <center><p>Find Your Hobby</p></center>
       <img src="https://placeimg.com/60/60/people" class="ribbon"/>
       <button id="newEventButton" type="button" onclick="newEvent()">+</button>
-      <button id="filterButton" type="button" onclick="filter" onclick="openFilter()">Filter</button>
+      <button id="filterButton" type="button" onclick="openFilter()">Filter</button>
   </div>
 </header>
 
@@ -39,7 +39,8 @@
 </form></center>
 
 <!--Filter Perameters -->
-<!-- <fieldset><form style="display:none;" id="filterForm">
+<form style="display:none;" id="filterForm">
+  <fieldset>
   Hobby:<br>
   <span id="hobbyFilter">
     <input type="checkbox" id="jetSki" name="hobby">
@@ -60,8 +61,9 @@
     <option>30 miles</option>
     <option>40 miles</option>
     <option>50 miles</option>
-  </select>
-</form></fieldset> -->
+  </select><br>
+  <input type="submit" value="Apply"><br>
+</fieldset></form>
 
 <!--event table -->
 <center><table id="feed">
