@@ -33,7 +33,7 @@ if (!$query) {
         <center><p>Find Your Hobby</p></center>
         <img src="https://placeimg.com/60/60/people" class="ribbon"/>
         <button id="newEventButton" type="button" onclick="newEvent()">+</button>
-        <button id="filterButton" type="button" onclick="filter" onclick="openFilter()">Filter</button>
+        <button id="filterButton" type="button" onclick="openFilter()">Filter</button>
     </div>
   </header>
 
@@ -60,30 +60,32 @@ if (!$query) {
     </fieldset>
   </form></center>
 
-  <!--Filter Perameters -->
-  <!-- <fieldset><form style="display:none;" id="filterForm">
-    Hobby:<br>
-    <span id="hobbyFilter">
-      <input type="checkbox" id="jetSki" name="hobby">
-      <label for="jetSki">Jet Ski</label>
+ <!--Filter Perameters -->
+<form style="display:none;" id="filterForm">
+  <fieldset>
+  Hobby:<br>
+  <span id="hobbyFilter">
+    <input type="checkbox" id="jetSki" name="hobby">
+    <label for="jetSki">Jet Ski</label>
 
-      <input type="checkbox" id="cycling" name="hobby">
-      <label for="cycling">Cycling</label>
+    <input type="checkbox" id="cycling" name="hobby">
+    <label for="cycling">Cycling</label>
 
-      <input type="checkbox" id="running" name="hobby">
-      <label for="running">Running</label>
+    <input type="checkbox" id="running" name="hobby">
+    <label for="running">Running</label>
 
-      <input type="checkbox" id="basketball" name="hobby">
-      <label for="basketball">Basketball</label>
-    </span><br>
-    Distance:<br>
-    <select id="distanceFilter">
-      <option>20 miles</option>
-      <option>30 miles</option>
-      <option>40 miles</option>
-      <option>50 miles</option>
-    </select>
-  </form></fieldset> -->
+    <input type="checkbox" id="basketball" name="hobby">
+    <label for="basketball">Basketball</label>
+  </span><br>
+  Distance:<br>
+  <select id="distanceFilter">
+    <option>20 miles</option>
+    <option>30 miles</option>
+    <option>40 miles</option>
+    <option>50 miles</option>
+  </select><br>
+  <input type="submit" value="Apply"><br>
+</fieldset></form>
 
   <!--event table -->
   <center><table id="feed">
