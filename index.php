@@ -41,21 +41,17 @@ if (!$query) {
 
   <!--New event form, popup onClick-->
 
-  <center><form style="display:none;" id="createNewEventForm">
+  <center><form style="display:none;" id="createNewEventForm" action='insert.php' method='post'>
     <fieldset>
         Event Name:<br>
       <input name="newEventName" type="text"><br>
-      hobby:<br>
-      <select name="hobbies">
-        <option value="bikes">Bikes</option>
-        <option value="jetSki">Jet Ski</option>
-        <option value="flying">Flying</option>
-        <option value="basketWeaving">Basket Weaving</option>
-      </select><br>
+      Description:<br>
+      <input name="newEventDescription" type="text">
+      <br>
+			Event Date:<br>
+      <input name="newEventDate" type="date"><br>
       Location:<br>
       <input name ="newEventLocation" type="text"><br>
-      Event Date:<br>
-      <input type="date" name="newEventDate"><br>
       <input type="submit"><br>
     </fieldset>
   </form></center>
@@ -91,9 +87,8 @@ if (!$query) {
   <center><table id="feed">
       <thead style="color: white;">
           <tr>
-              <th>ID</th>
-              <th>Message</th>
-              <th>Event Name</th>
+							<th>Event Name</th>
+							<th>Description</th>
               <th>Event Date</th>
               <th>Event Location</th>
               <th>RSVP</th>
@@ -104,14 +99,13 @@ if (!$query) {
         $no 	= 1;
         while ($row = mysqli_fetch_array($query))
         {
-          $RSVP  = $row['RSVP'] == 0 ? '' : number_format($row['RSVP']);
+          $rsvp  = $row['rsvp'] == 0 ? '' : number_format($row["rsvp"]);
           echo '<tr>
-              <td>'.$no.'</td>
-              <td>'.$row['message'].'</td>
-              <td>'.$row['Event Name'].'</td>
-              <td>'. date('F d, Y', strtotime($row['Event Date'])) . '</td>
-              <td>'.$Location.'</td>
-              <td>'.$RSVP.'</td>
+        			<td>'.$row['eventName'].'</td>
+							<td>'.$row['description'].'</td>
+              <td>'. date('F d, Y', strtotime($row['eventDate'])) . '</td>
+              <td>'.$row['location'].'</td>
+              <td>'.$rsvp.'</td>
             </tr>';
           $no++;
         }?>
@@ -119,4 +113,20 @@ if (!$query) {
   </table></center>
 </body>
 <script src="webApp.js"></script>
+
+<footer>
+  <div class="copyright">
+    <p>&copy 2018 - Hobby Inc.</p>
+  </div>
+  <div class="social">
+    <a href="#" class="support">Contact Us</a>
+    <a href="#" class="face">f</a>
+    <a href="#" class="tweet">t</a>
+    <a href="#" class="linked">in</a>
+		<a href="#" class="legal">Legal</a>
+		<a href="#" class="privacy">Privacy Policy</a>
+		<a href="#" class="jobs">Jobs</a>
+  </div>
+</footer>
+
 </html>
