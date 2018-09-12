@@ -46,13 +46,22 @@ body {
 /*table style */
 #feed {
   font-family: montserrat, arial, verdana;
-  background-image: url(https://placeimg.com/640/550/any);
-	border: 0 none;
-	border-radius: 3px;
-	box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
-	box-sizing: border-box;
+  /* background-image: url(https://placeimg.com/640/550/any); */
+	color: white;
 	width: 80%;
   text-align: left;
+	border-collapse: collapse;
+}
+
+td {
+	padding: 15px;
+	border-bottom: 1px solid black;
+	background-image: url(https://placeimg.com/640/550/any);
+
+}
+
+th {
+	padding: 15px;
 }
 
 /*filter style */

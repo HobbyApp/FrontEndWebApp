@@ -14,6 +14,7 @@ $sql = 'SELECT *
 
 $query = mysqli_query($conn, $sql);
 
+
 if (!$query) {
 	die ('SQL Error: ' . mysqli_error($conn));
 }
@@ -85,8 +86,8 @@ if (!$query) {
 
   <!--event table -->
   <center><table id="feed">
-      <thead style="color: white;">
-          <tr>
+      <thead>
+          <tr class='rowData'>
 							<th>Event Name</th>
 							<th>Description</th>
               <th>Event Date</th>
@@ -94,9 +95,11 @@ if (!$query) {
               <th>RSVP</th>
           </tr>
       </thead>
-      <tbody style="color: white;">
+      <tbody>
         <?php
-        $no 	= 1;
+				// this php code loops through the database to display the data in the proper row.
+
+				$no 	= 1;
         while ($row = mysqli_fetch_array($query))
         {
           $rsvp  = $row['rsvp'] == 0 ? '' : number_format($row["rsvp"]);
@@ -108,12 +111,20 @@ if (!$query) {
               <td>'.$rsvp.'</td>
             </tr>';
           $no++;
+
+				// Ignore this stuff for now but leave it here
+				//	$no.
+				//	$queryDetails = mysqli_query($conn, $sqlDetails)
+				//	$sqlDetails = 'SELECT * FROM mytable WHERE id=$x';
+
+				//	if ($row = mysqli_fetch_array())
+
         }?>
       </tbody>
   </table></center>
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="webApp.js"></script>
-
 <footer>
   <div class="copyright">
     <p>&copy 2018 - Hobby Inc.</p>
@@ -125,7 +136,6 @@ if (!$query) {
     <a href="#" class="linked">in</a>
 		<a href="#" class="legal">Legal</a>
 		<a href="#" class="privacy">Privacy Policy</a>
-		<a href="#" class="jobs">Jobs</a>
   </div>
 </footer>
 
