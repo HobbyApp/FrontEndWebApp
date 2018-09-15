@@ -41,10 +41,10 @@
 <!--Filter Perameters -->
 <form style="display:none;" id="filterForm">
   <fieldset>
-    <p>Filter by:</p><br>
   <!--will filter based on selectable hobbies(unlimited hobbies) searchable, span date filter -->
+    <label for="hobbyFilter">Filter by: </label>
     <div class="dropdown">
-      <button onclick="openHobbyFilter()" class="dropbtn">Hobbies</button>
+      <button id="hobbyFilter" onclick="openHobbyFilter()" class="dropbtn">Hobbies</button>
       <div id="myDropdown" class="dropdown-content">
         <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
         <a href="#skiing">Skiing</a>
@@ -57,15 +57,12 @@
       </div>
     </div><br>
   <!--date selector for filter perameter -->
-    <legend>Filter from today:</legend><br>
-
-    <div><fieldset>
-        <label for="endDate">To:</label>
+    <div >
+        <label for="endDate">Filter From Today To: </label>
         <input type="date" id="endDate" name="trip"
                value="2018-07-29"
                min="2018-01-01" max="2018-12-31"/ >
-    </fieldset></div><br>
-</fieldset>
+    </div><br>
 </fieldset></form>
 
 <!--event table -->
