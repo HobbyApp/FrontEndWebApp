@@ -39,12 +39,13 @@
 </form></center>
 
 <!--Filter Perameters -->
+
 <form style="display:none;" id="filterForm">
   <fieldset>
   <!--will filter based on selectable hobbies(unlimited hobbies) searchable, span date filter -->
     <label for="hobbyFilter">Filter by: </label>
     <div class="dropdown">
-      <button id="hobbyFilter" onclick="openHobbyFilter()" class="dropbtn">Hobbies</button>
+      <button type="button" id="hobbyFilter" onclick="openHobbyFilter()" class="dropbtn">Hobbies</button>
       <div id="myDropdown" class="dropdown-content">
         <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
         <a href="#skiing">Skiing</a>
