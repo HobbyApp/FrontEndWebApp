@@ -45,43 +45,47 @@ if (!$query) {
   <center><form style="display:none;" id="createNewEventForm" action='insert.php' method='post'>
     <fieldset>
         Event Name:<br>
-      <input name="newEventName" type="text"><br>
-      Description:<br>
-      <input name="newEventDescription" type="text">
-      <br>
-			Event Date:<br>
-      <input name="newEventDate" type="date"><br>
-      Location:<br>
-      <input name ="newEventLocation" type="text"><br>
-      <input type="submit"><br>
+				<input name="newEventName" type="text"><br>
+		    hobby:<br>
+		    <select name="hobbies">
+		      <option value="bikes">Bikes</option>
+		      <option value="jetSki">Jet Ski</option>
+		      <option value="flying">Flying</option>
+		      <option value="basketWeaving">Basket Weaving</option>
+		    </select><br>
+		    Location:<br>
+		    <input name ="newEventLocation" type="text"><br>
+		    Event Date:<br>
+		    <input type="date" name="newEventDate"><br>
+		    <input type="submit"><br>
     </fieldset>
   </form></center>
 
  <!--Filter Perameters -->
 <form style="display:none;" id="filterForm">
-  <fieldset>
-  Hobby:<br>
-  <span id="hobbyFilter">
-    <input type="checkbox" id="jetSki" name="hobby">
-    <label for="jetSki">Jet Ski</label>
-
-    <input type="checkbox" id="cycling" name="hobby">
-    <label for="cycling">Cycling</label>
-
-    <input type="checkbox" id="running" name="hobby">
-    <label for="running">Running</label>
-
-    <input type="checkbox" id="basketball" name="hobby">
-    <label for="basketball">Basketball</label>
-  </span><br>
-  Distance:<br>
-  <select id="distanceFilter">
-    <option>20 miles</option>
-    <option>30 miles</option>
-    <option>40 miles</option>
-    <option>50 miles</option>
-  </select><br>
-  <input type="submit" value="Apply"><br>
+	<fieldset>
+  <!--will filter based on selectable hobbies(unlimited hobbies) searchable, span date filter -->
+    <label for="hobbyFilter">Filter by: </label>
+    <div class="dropdown">
+      <button type="button" id="hobbyFilter" onclick="openHobbyFilter()" class="dropbtn">Hobbies</button>
+      <div id="myDropdown" class="dropdown-content">
+        <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
+        <a href="#skiing">Skiing</a>
+        <a href="#cycling">Cycling</a>
+        <a href="#running">Running</a>
+        <a href="#crossfit">Cross Fit</a>
+        <a href="#bmx">BMX</a>
+        <a href="#shooting">Shooting</a>
+        <a href="#basketweaving">Basket Weaving</a>
+      </div>
+    </div><br>
+  <!--date selector for filter perameter -->
+    <div >
+        <label for="endDate">Filter From Today To: </label>
+        <input type="date" id="endDate" name="trip"
+               value="2018-07-29"
+               min="2018-01-01" max="2018-12-31"/ >
+    </div><br>
 </fieldset></form>
 
   <!--event table -->
