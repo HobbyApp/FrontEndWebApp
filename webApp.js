@@ -18,34 +18,13 @@ function openFilter() {
      y.style.display = "none";
    }
 }
-//search funtion for hobby filter option
-$(document).ready(function captureTableRowClick() {
-            $('tr').click(function () {
-                var tableData = $(this).children('td').map(function returnTableDataText() {
-                    return $(this).text();
-                }).get();
-                var props = $('thead > tr th');
-                var array = [];
-                props.each(function () { array.push($(this).text()) });
-                //keys
-                console.log(array);
-                //values
-                console.log(tableData);
 
-                var obj = {};
-                for (var i = 0; i < tableData.length; i++) {
-                    obj[array[i]] = tableData[i];
-                }
-                console.log(obj);
-            });
-
-        });
         /* When the user clicks on the button,
         toggle between hiding and showing the dropdown content */
         function openHobbyFilter() {
           document.getElementById("myDropdown").classList.toggle("show");
         }
-
+//search funtion for hobby filter option
         function filterFunction() {
           var input, filter, ul, li, a, i;
           input = document.getElementById("myInput");

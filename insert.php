@@ -22,7 +22,8 @@ $date=date("Y-m-d",strtotime($newEventDate));
 $location = mysqli_real_escape_string($conn, $_POST['newEventLocation']);
 
 // Attempt insert query execution
-$sql = "INSERT INTO mytable (eventName, description, eventDate, location) VALUES ('$eventName', '$description', '$date', '$location')";
+$sql = "INSERT INTO mytable (eventName, description, eventDate, location)
+				VALUES ('$eventName', '$description', '$date', '$location')";
 
 if(mysqli_query($conn, $sql)){
     echo "Records added successfully.";

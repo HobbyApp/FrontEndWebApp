@@ -1,29 +1,8 @@
-<?php
-$db_host = '127.0.0.1'; // Server Name
-$db_user = 'root'; // Username
-$db_pass = 'password'; // Password
-$db_name = 'mydb'; // Database Name
-
-$conn = mysqli_connect($db_host, $db_user, $db_pass, $db_name);
-if (!$conn) {
-	die ('Failed to connect to MySQL: ' . mysqli_connect_error());
-}
-
-$sql = 'SELECT *
-		FROM mytable';
-
-$query = mysqli_query($conn, $sql);
-
-
-if (!$query) {
-	die ('SQL Error: ' . mysqli_error($conn));
-}
-?>
-
 <html>
 <head>
     <title>Hobby Inc.</title>
   <link rel="stylesheet" type="text/css" href="webApp.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 
 
@@ -100,32 +79,43 @@ if (!$query) {
           </tr>
       </thead>
       <tbody>
-        <?php
-				// this php code loops through the database to display the data in the proper row.
+				<?php
+				require 'config.php'; // Database connection
 
-				$no 	= 1;
-        while ($row = mysqli_fetch_array($query))
-        {
-          $rsvp  = $row['rsvp'] == 0 ? '' : number_format($row["rsvp"]);
-          echo '<tr>
-        			<td>'.$row['eventName'].'</td>
-							<td>'.$row['description'].'</td>
-              <td>'. date('F d, Y', strtotime($row['eventDate'])) . '</td>
-              <td>'.$row['location'].'</td>
-              <td>'.$rsvp.'</td>
-            </tr>';
-          $no++;
+				$sql = 'SELECT *
+						FROM mytable';
 
-				// Ignore this stuff for now but leave it here
-				//	$no.
-				//	$queryDetails = mysqli_query($conn, $sqlDetails)
-				//	$sqlDetails = 'SELECT * FROM mytable WHERE id=$x';
+				foreach ($dbo->query($sql) as $row) {
+					echo "<tr>
+							<td><a value=$row[id] class='clickDetail'>$row[id]</a></td>
+							<td><a value=$row[id] class='clickDetail'>$row[eventName]</a></td>
+							<td><a value=$row[id] class='clickDetail'>$row[description]</a></td>
+							<td>date('F d, Y', strtotime($row[eventDate]))</a></td>
+							<td><a value=$row[id] class='clickDetail'>$row[location]</a></td>
+							<td>$rsvp</td>
+							<td><div id='$row[id]' class='my_dtl'> </div></td>
+						</a></tr>";
+				}
+				?>
+				</tbody>
+				</table></center>
 
-				//	if ($row = mysqli_fetch_array())
+				<script>
+				$(document).ready(function onClickRow() {
 
-        }?>
-      </tbody>
-  </table></center>
+				$('.clickDetail').click(function(){
+				var str=$(this).attr('value'); // Find out which button is clicked, stores its value in variable 'str'
+
+				//$(".my_dtl").hide();  // Hide all the event details already displayed.
+				//$("#"+str+"").html("wait ... ");
+				//$("#"+str+"").show();
+				//alert('eventDetail.php?str='+str);
+				$(window.location = 'eventDetail.php?str='+str).load('eventDetail.php?str='+'/'+str); // To collect data from database
+				//$("#"+str+"").load('eventDetail.php?str='+str); // to Collect data from array
+
+				})
+				})
+				</script>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="webApp.js"></script>
