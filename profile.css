@@ -19,11 +19,52 @@ body {
 .ribbon {
   position:absolute;
   top: 5%;
-  right: 25%;
-	border-radius: 50%
+  right: 40%;
+	border-radius: 50%;
+  border: 0 none;
+	box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+	box-sizing: border-box;
 }
 
-#userHobbies {
-  text-align:center;
-  
+#userProfile {
+  background: white;
+	border: 0 none;
+	border-radius: 3px;
+	box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+	box-sizing: border-box;
+	width: 35%;
+  text-align: left;
+  padding: 5px;
+  position: fixed;
+  top: 50%;
+  right: 30%;
+  z-index: 0;
+}
+
+#editButton {
+  position: fixed;
+  top: 10%;
+  right: 35%;
+}
+
+#userBio {
+  overflow: scroll;
+}
+
+#userInfoForm fieldset {
+	background: white;
+	border: 0 none;
+	border-radius: 3px;
+	box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+	box-sizing: border-box;
+	width: 100%;
+
+}
+
+#userInfoForm {
+  width:30%;
+  position: relative;
+  top: 350px;
+  left: 35%;
+  z-index: 1;
 }

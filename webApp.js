@@ -30,7 +30,7 @@ function openFilter() {
           input = document.getElementById("myInput");
           filter = input.value.toUpperCase();
           div = document.getElementById("myDropdown");
-          a = div.getElementsByTagName("a");
+          a = div.getElementsById("hobbies");
           for (i = 0; i < a.length; i++) {
             if (a[i].innerHTML.toUpperCase().indexOf(filter) > -1) {
               a[i].style.display = "show";
@@ -64,5 +64,3 @@ function openFilter() {
     f.style.display = 'none';
   }
 }
-
-//close windows on offclick
