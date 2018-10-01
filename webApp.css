@@ -22,7 +22,7 @@ body {
 	margin:50px auto;
 	text-align: center;
   z-index: 1;
-  top: 50px;
+  top: 100px;
 }
 
 #createNewEventForm fieldset {
@@ -71,7 +71,7 @@ th {
 	margin:50px auto;
 	text-align: center;
   z-index: 2;
-  top: 50px;
+  top: 100px;
 }
 
 #filterForm fieldset {

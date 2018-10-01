@@ -39,3 +39,30 @@ function openFilter() {
             }
           }
         }
+
+//closes filterForm if createNewEventForm is open and vice versa
+function newEvent() {
+  var f = document.getElementById('filterForm');
+  var e = document.getElementById('createNewEventForm');
+  if (f.style.display === 'block') {
+    f.style.display = 'none';
+  } else if (e.style.display === 'none') {
+    e.style.display = 'block';
+  } else {
+    e.style.display = 'none';
+  }
+}
+
+function openFilter() {
+  var f = document.getElementById('filterForm');
+  var e = document.getElementById('createNewEventForm');
+  if (e.style.display === 'block') {
+    e.style.display = 'none';
+  } else if (f.style.display === 'none') {
+    f.style.display = 'block';
+  } else {
+    f.style.display = 'none';
+  }
+}
+
+//close windows on offclick
