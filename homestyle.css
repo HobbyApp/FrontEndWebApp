@@ -27,3 +27,17 @@ body {
   text-align: center;
 	margin: 0; padding: 0;
 }
+
+#maps {
+	display: block;
+	float: left;
+	margin-top: 10px;
+
+}
+
+#liveLandingFeed {
+	display: block;
+	float: right;
+	margin-right: auto;
+	margin-top: 10px;
+}

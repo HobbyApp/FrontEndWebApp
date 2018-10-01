@@ -9,8 +9,8 @@
   <!--Top of the page will contain add new event, user profile button, and page title.-->
   <header>
     <div class="container">
-        <center><h1>Hobby Inc.</h1></center>
-        <center><p>Find Your Hobby</p></center>
+        <center><h1><img src='hobby_logo_h_only.png'></h1></center>
+
         <img src="https://placeimg.com/60/60/people" class="ribbon"/>
         <button id="newEventButton" type="button" onclick="newEvent()">+</button>
         <button id="filterButton" type="button" onclick="openFilter()">Filter</button>
@@ -85,18 +85,19 @@
 				$sql = 'SELECT *
 						FROM mytable';
 
-				foreach ($dbo->query($sql) as $row) {
-					echo "<tr>
-							<td><a value=$row[id] class='clickDetail'>$row[id]</a></td>
-							<td><a value=$row[id] class='clickDetail'>$row[eventName]</a></td>
-							<td><a value=$row[id] class='clickDetail'>$row[description]</a></td>
-							<td>date('F d, Y', strtotime($row[eventDate]))</a></td>
-							<td><a value=$row[id] class='clickDetail'>$row[location]</a></td>
-							<td>$rsvp</td>
-							<td><div id='$row[id]' class='my_dtl'> </div></td>
-						</a></tr>";
-				}
-				?>
+        foreach ($dbo->query($sql) as $row) {
+
+          $sqlDate = date('F d, Y', strtotime($row[eventDate]));
+
+          echo "<tr>
+              <td><a value=$row[id] class='clickDetail'>$row[eventName]</a></td>
+              <td><a value=$row[id] class='clickDetail'>$row[description]</a></td>
+              <td><a value=$row[id] class='clickDetail'>$sqlDate</a></td>
+              <td><a value=$row[id] class='clickDetail'>$row[location]</a></td>
+              <td>$rsvp</td>
+            </a></tr>";
+        }
+        ?>
 				</tbody>
 				</table></center>
 
