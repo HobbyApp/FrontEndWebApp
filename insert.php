@@ -21,15 +21,19 @@ $newEventDate= mysqli_real_escape_string($conn, $_POST['newEventDate']);
 $date=date("Y-m-d",strtotime($newEventDate));
 $location = mysqli_real_escape_string($conn, $_POST['newEventLocation']);
 
-// Attempt insert query execution
-$sql = "INSERT INTO mytable (eventName, description, eventDate, location)
-				VALUES ('$eventName', '$description', '$date', '$location')";
+// the path to store the uploaded image
+$target = "images/".basename($_FILES['image']['name']);
 
-if(mysqli_query($conn, $sql)){
-    echo "Records added successfully.";
-} else{
-    echo "ERROR: Not able to execute $sql. " . mysqli_error($conn);
-}
+// Get all the submitted data from the form
+$image = $_FILES['image']['name'];
+
+// Attempt insert query execution
+$sql = "INSERT INTO mytable (eventName, description, eventDate, location, image)
+				VALUES ('$eventName', '$description', '$date', '$location', '$image')";
+
+
+
+
 
 
 
