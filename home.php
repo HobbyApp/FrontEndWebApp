@@ -42,7 +42,6 @@
                 <th>Description</th>
                 <th>Event Date</th>
                 <th>Event Location</th>
-                <th>RSVP</th>
             </tr>
         </thead>
         <tbody>
@@ -61,7 +60,6 @@
                 <td><a value=$row[id] class='clickDetail'>$row[description]</a></td>
                 <td><a value=$row[id] class='clickDetail'>$sqlDate</a></td>
                 <td><a value=$row[id] class='clickDetail'>$row[location]</a></td>
-                <td>$rsvp</td>
               </a></tr>";
           }
           ?>

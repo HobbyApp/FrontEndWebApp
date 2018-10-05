@@ -49,8 +49,9 @@ if (mysqli_num_rows($result) > 0) {
 
 mysqli_close($conn);
 ?>
+<br>
 <div id="eventContainer">
-  <div id="pictureBanner">
+  <div id="pictureBanner" class="fill">
     <?php
       $db_host = '127.0.0.1'; // Server Name
       $db_user = 'root'; // Username
@@ -73,15 +74,34 @@ mysqli_close($conn);
       }
 
 ?>
-
-  </div>
-  <div id="detailBox">
-    <div id="eventName">
+  <div id="eventName" class="bottom-left">
+    <h1>
       <?php
         foreach ($items as $item) {
           echo $item['eventName'];
         }
       ?>
+    </h1>
+  </div>
+</div>
+  <div id="detailBox">
+    <div id="hobbyType">
+      <?php
+        foreach ($items as $item) {
+          echo $item['hobby'];
+        }
+      ?>
+    </div>
+    <div id="eventDate">
+      <h2>
+      <?php
+
+        foreach ($items as $item) {
+          $sqlDate = date('F d, Y', strtotime($item[eventDate]));
+          echo $sqlDate;
+        }
+      ?>
+      </h2>
     </div>
     <div id="description">
       <?php
@@ -90,37 +110,38 @@ mysqli_close($conn);
         }
       ?>
     </div>
-    <div id="eventDate">
-      <?php
-        foreach ($items as $item) {
-          echo $item['eventDate'];
-        }
-      ?>
-    </div>
     <div id="location">
+      <h3>Where is it?</h3>
       <?php
         foreach ($items as $item) {
+          echo "Address: ";
           echo $item['location'];
         }
       ?>
+    </div><br>
+    <div id="maps" style="width:625px;height:400px;">
+      <script>
+        function myMap() {
+          var mapOptions = {
+              center: new google.maps.LatLng(30.2672, 97.7431),
+              zoom: 10,
+              mapTypeId: google.maps.MapTypeId.ROADMAP
+          }
+          var map = new google.maps.Map(document.getElementById("maps"), mapOptions);
+        }
+      </script>
     </div>
     <div id="rsvpList">
+      <h3>Who's Going?</h3>
       <?php
         foreach ($items as $item) {
           echo $item['rsvp'];
         }
       ?>
     </div>
-    <div id="hobbyType">
-      <?php
-        foreach ($items as $item) {
-          echo $item['hobby'];
-        }
-      ?>
-    </div>
   </div>
 </div>
 
-
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7tmBrLtSdrzhWnz6yiCKpvtFcMSKNMQU&callback=myMap"></script>
 </body>
 </html>

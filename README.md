@@ -5,4 +5,4 @@ DO NOT make a commit without first downloading the latest files and saving them 
 
 Comment all your code where necessary and keep it clean.
 
-&copy Hobby Exploration Technologies
+© Hobby Exploration Technologies
