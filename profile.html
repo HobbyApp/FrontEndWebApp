@@ -6,28 +6,55 @@
 </head>
 
 <header>
-  <div class="container">
-<!-- <img src="https://placeimg.com/640/480/people/grayscale" class="ribbon"/>
-<button type="button" id="editButton"></button> -->
-</div>
+
 </header>
 
 
 <body>
+  <div class="container">
+    <img id="profilePic" src="https://placeimg.com/240/240/people/grayscale" class="ribbon">
+    <button type="button" id="editButton" onclick="openEditInfoForm()"></button>
+  </div>
+  <!--User form that displays current user profile information -->
   <center><div id="userProfile">
-    <label for="name">Name:</label>
-    <p id="name">Your Name Here</p>
+    <label for="name">Hello! Welcome to your profile</label>
+      <var id="firstName">Conor</var>
+      <var id="lastName">Steward</var><br>
     <label for="userHobbies">Your Hobbies:</label>
-  <ul id="userHobbies">
+      <ul id="userHobbies">
       <li>Hobby</li>
       <li>Hobby</li>
       <li>Hobby</li>
       <li>Hobby</li>
-  </ul>
-  <label for="userBio">Your Bio:</label>
-  <p id="userBio">This is the user  bio area. This is the user  bio area. This is the user  bio area. This is the user  bio area. This is the user  bio area. This is the user  bio area.</p>
-
+      </ul>
+<!-- Opens to allow user to edit their personal information-->
 </div></center>
+  <form style="display:none;" id="userInfoForm">
+    <fieldset>
+    <center><p>Edit User Information</p></center>
+    <input type="text" value="First Name"><br>
+    <input type="text" value="Last Name"><br>
+    <input type="text" value="Add Hobby Here">
+      <div id="allHobbies" class="allHobbies">
+        <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()"><br>
+        <input type="checkbox" id="hobbies" href="hobby">Hobby</input><br>
+        <input type="checkbox" id="hobbies" href="cycling">Cycling</input><br>
+        <input type="checkbox" id="hobbies" href="runing">Running</input><br>
+        <input type="checkbox" id="hobbies" href="sky diving">Sky Diving</input><br>
+        <input type="checkbox" id="hobbies" href="bmx">BMX</input><br>
+      </div><br>
+      <div id="userHobbies" class="userHobbies">
+        <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()"><br>
+        <input type="checkbox" id="hobbies" href="hobby">Hobby</input><br>
+        <input type="checkbox" id="hobbies" href="cycling">Cycling</input><br>
+        <input type="checkbox" id="hobbies" href="runing">Running</input><br>
+        <input type="checkbox" id="hobbies" href="sky diving">Sky Diving</input><br>
+        <input type="checkbox" id="hobbies" href="bmx">BMX</input><br>
+      </div><br>
+    <label for="inputBirthday">What is your date of birth?</label><br>
+    <input type="date" id="inputBirthday"></input><br>
+    <center><input type="submit"></center>
+  </fieldset></form>
 </body>
 
 

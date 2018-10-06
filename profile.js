@@ -7,3 +7,4 @@ function openEditInfoForm() {
           x.style.display = "none";
         }
   }
+
