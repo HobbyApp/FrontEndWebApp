@@ -20,6 +20,7 @@ $date=date("Y-m-d",strtotime($newEventDate));
 $location = mysqli_real_escape_string($conn, $_POST['newEventLocation']);
 
 
+
 if (isset($_POST['upload'])) {
 
   // the path to store the uploaded image
@@ -28,9 +29,13 @@ if (isset($_POST['upload'])) {
   // Get all the submitted data from the form
   $image = $_FILES['image']['name'];
 
+	$hobbyTarget = $_POST['hobbySelector'];
+
   // Attempt insert query execution
-  $sql = "INSERT INTO mytable (eventName, description, eventDate, location, image)
-  				VALUES ('$eventName', '$description', '$date', '$location', '$image')";
+  $sql = "INSERT INTO mytable (eventName, description, eventDate, location, image, hobby)
+  				VALUES ('$eventName', '$description', '$date', '$location', '$image', '$hobbyTarget')";
+
+
 
   mysqli_query($conn, $sql); //stores the submitted data into the database table
 
@@ -56,8 +61,8 @@ mysqli_close($conn);
 
   <!--Top of the page will contain add new event, user profile button, and page title.-->
   <header>
-    <div class="container">
-        <center><h1><img src='hobby_logo_h_only.png'></h1></center>
+    <div>
+        <center><h1><a href="index.php"><img id='logo' src='hobby_logo_h_only.png'></a></h1></center>
 
         <img src="https://placeimg.com/60/60/people" class="ribbon"/>
         <button id="newEventButton" type="button" onclick="newEvent()">+</button>
@@ -74,14 +79,33 @@ mysqli_close($conn);
         Event Name:<br>
 				<input name="newEventName" type="text"><br>
 		    hobby:<br>
-		    <select name="hobbies">
-		      <option value="bikes">Bikes</option>
-		      <option value="jetSki">Jet Ski</option>
-		      <option value="flying">Flying</option>
-		      <option value="basketWeaving">Basket Weaving</option>
-		    </select><br>
+					<?php
+					$db_host = '127.0.0.1'; // Server Name
+					$db_user = 'root'; // Username
+					$db_pass = 'password'; // Password
+					$db_name = 'mydb'; // Database Name
+
+					$conn = mysqli_connect($db_host, $db_user, $db_pass, $db_name);
+					if (!$conn) {
+						die ('Failed to connect to MySQL: ' . mysqli_connect_error());
+					}
+
+						$hobbyQuery = "SELECT hobby FROM hobbies";
+						$hobbyResult = mysqli_query($conn, $hobbyQuery);
+
+						echo '<select name="hobbySelector" id="hobbySelector">';
+
+						while ($row = mysqli_fetch_array($hobbyResult)) {
+							echo '<option value="'.$row['hobby'].'">'.$row['hobby'].'</option>';
+						}
+						echo '</select>';
+
+					 ?>
+		    <br>
 		    Location:<br>
-		    <input name ="newEventLocation" type="text"><br>
+		    <input name="newEventLocation" type="text"><br>
+				Event Description:<br>
+				<input name="newEventDescription" type="text"><br>
 		    Event Date:<br>
 		    <input type="date" name="newEventDate"><br><br>
         <input type="file" name="image"><br><br>
@@ -117,7 +141,7 @@ mysqli_close($conn);
 </fieldset></form>
 
   <!--event table -->
-  <center><table id="feed">
+  <center><table id="feed" class="feed">
       <thead>
           <tr class='rowData'>
 							<th>Event Name</th>

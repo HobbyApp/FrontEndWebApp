@@ -6,13 +6,25 @@ html {
 	/*Image only BG fallback*/
 
 	/*background = gradient + image pattern combo*/
-	background:
-		linear-gradient(rgba(196, 102, 0, 0.6), rgba(155, 89, 182, 0.6));
+
+		background-color: rgb(245, 245, 250);
 }
 
 body {
 	font-family: montserrat, arial, verdana;
 
+}
+
+header {
+	background-color: rgb(255, 255, 255);
+	position: fixed;
+	top: 0;
+  left: 0;
+  right: 0;
+	overflow: hidden;
+	max-height: 80px;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.025);
+	z-index: 50;
 }
 
 /*form styles*/
@@ -38,19 +50,24 @@ body {
 /*profile pic styles*/
 .ribbon {
   position:absolute;
-  top: 5%;
+  top: 10px;
   right: 10%;
 	border-radius: 50%
 }
 
+
 /*table style */
 #feed {
-  font-family: montserrat, arial, verdana;
+	font-family: montserrat, arial, verdana;
   /* background-image: url(https://placeimg.com/640/550/any); */
 	color: white;
 	width: 80%;
   text-align: left;
 	border-collapse: collapse;
+}
+
+.feed {
+	margin-top: 50px;
 }
 
 td {
@@ -167,6 +184,31 @@ th {
 /* Bottom left text */
 .bottom-left {
     position: absolute;
-    bottom: 160px;
-    left: 16px;
+    bottom: 290px;
+    left: 18px;
+}
+
+.rsvpButton {
+	position: relative;
+	margin-left: 80%;
+}
+
+#newEventButton {
+	position: fixed;
+	top: 30px;
+	left: 5px;
+}
+
+#filterButton {
+	position: fixed;
+	top: 30px;
+	left: 30px;
+}
+
+#rsvpList {
+	float: left;
+}
+
+#maps {
+	float: left;
 }

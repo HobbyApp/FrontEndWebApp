@@ -9,9 +9,9 @@
   <!--Top of the page will contain add new event, user profile button, and page title.-->
   <header>
     <div class="container">
-        <center><h1><img src='hobby_logo_h_only.png'></h1></center>
+        <center><h1><a href="index.php"><img src='hobby_logo_h_only.png'></a></h1></center>
         <center><p>Find Your Hobby. Find Your Friends.</p></center>
-        <img src="https://placeimg.com/60/60/people" class="ribbon"/>
+        <a href="profile.php"><img src="https://placeimg.com/60/60/people" class="ribbon"/></a>
         <button id="newEventButton" type="button" onclick="newEvent()">+</button>
         <button id="filterButton" type="button" onclick="openFilter()">Filter</button>
     </div>
@@ -102,6 +102,7 @@ mysqli_close($conn);
         }
       ?>
       </h2>
+    <button id="rsvpButton" class="rsvpButton">I'm Going!</button>
     </div>
     <div id="description">
       <?php
@@ -133,10 +134,20 @@ mysqli_close($conn);
     </div>
     <div id="rsvpList">
       <h3>Who's Going?</h3>
+
       <?php
+        // Displays rsvp cap that the event creator has set. If cap is NULL, echo's "Unlimited Attendence"
         foreach ($items as $item) {
-          echo $item['rsvp'];
+          $rsvpCap = $item['rsvp'];
+          $x = 1;
+          if (empty($rsvpCap)) {
+            echo "Unlimited Attendence";
+          } else {
+            echo $rsvpCap;
+            echo " Person Limit";
+          }
         }
+
       ?>
     </div>
   </div>
