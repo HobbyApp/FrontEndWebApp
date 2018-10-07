@@ -35,24 +35,33 @@ header {
 	text-align: center;
   z-index: 1;
   top: 100px;
+	left: 0;
 }
 
 #createNewEventForm fieldset {
-	background: white;
+
 	border: 0 none;
 	border-radius: 3px;
 	box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
 	box-sizing: border-box;
 	width: 100%;
-
+	background-color: rgb(241, 127, 119);
+	left: 0;
 }
 
 /*profile pic styles*/
 .ribbon {
   position:absolute;
-  top: 10px;
+  top: 10%;
   right: 10%;
 	border-radius: 50%
+}
+/* header logo middle */
+.logo {
+
+	padding-top: 5;
+	padding-bottom: 5;
+
 }
 
 
@@ -67,7 +76,7 @@ header {
 }
 
 .feed {
-	margin-top: 50px;
+	margin-top: 75px;
 }
 
 td {
@@ -79,6 +88,7 @@ td {
 
 th {
 	padding: 15px;
+	color: black;
 }
 
 /*filter style */
@@ -195,14 +205,14 @@ th {
 
 #newEventButton {
 	position: fixed;
-	top: 30px;
-	left: 5px;
+	top: 25px;
+	left: 80px;
 }
 
 #filterButton {
 	position: fixed;
-	top: 30px;
-	left: 30px;
+	top: 25px;
+	left: 105px;
 }
 
 #rsvpList {

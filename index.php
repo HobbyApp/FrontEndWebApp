@@ -60,11 +60,10 @@ mysqli_close($conn);
 
 
   <!--Top of the page will contain add new event, user profile button, and page title.-->
-  <header>
-    <div>
-        <center><h1><a href="index.php"><img id='logo' src='hobby_logo_h_only.png'></a></h1></center>
+  <header><center><a href="index.php"><img id='logo' class='logo' src='hobby_logo_h_only.png'></a></center>
 
-        <img src="https://placeimg.com/60/60/people" class="ribbon"/>
+    <div>
+        <a href='profile.php'><img src="https://placeimg.com/50/50/people" class="ribbon"></a>
         <button id="newEventButton" type="button" onclick="newEvent()">+</button>
         <button id="filterButton" type="button" onclick="openFilter()">Filter</button>
     </div>
@@ -107,7 +106,8 @@ mysqli_close($conn);
 				Event Description:<br>
 				<input name="newEventDescription" type="text"><br>
 		    Event Date:<br>
-		    <input type="date" name="newEventDate"><br><br>
+		    <input type="date" name="newEventDate"><br>
+				Add a Cover Photo!<br>
         <input type="file" name="image"><br><br>
 		    <input type="submit" name="upload"><br>
     </fieldset>
@@ -195,7 +195,7 @@ mysqli_close($conn);
 <script src="webApp.js"></script>
 <footer>
   <div class="copyright">
-    <p>&copy 2018 - Hobby Inc.</p>
+    <p>&copy 2018 - Hobby Exploration Technologies LLC</p>
   </div>
   <div class="social">
     <a href="#" class="support">Contact Us</a>
