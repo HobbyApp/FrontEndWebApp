@@ -1,4 +1,15 @@
 <?php
+session_start();
+
+  if (!isset($_SESSION['username'])) {
+  	$_SESSION['msg'] = "You must log in first";
+  	header('location: login.php');
+  }
+  if (isset($_GET['logout'])) {
+  	session_destroy();
+  	unset($_SESSION['username']);
+  	header("location: login.php");
+  }
 
 $db_host = '127.0.0.1'; // Server Name
 $db_user = 'root'; // Username
@@ -63,7 +74,7 @@ mysqli_close($conn);
   <header><center><a href="index.php"><img id='logo' class='logo' src='hobby_logo_h_only.png'></a></center>
 
     <div>
-        <a href='profile.php'><img src="https://placeimg.com/50/50/people" class="ribbon"></a>
+        <a href='profile.php'><img src="<?php echo $row['profilePicture']; ?>" class="ribbon"></a>
         <button id="newEventButton" type="button" onclick="newEvent()">+</button>
         <button id="filterButton" type="button" onclick="openFilter()">Filter</button>
     </div>
@@ -190,6 +201,26 @@ mysqli_close($conn);
 				})
 				})
 				</script>
+				<div class="content">
+				  	<!-- notification message -->
+				  	<?php if (isset($_SESSION['success'])) : ?>
+				      <div class="error success" >
+				      	<h3>
+				          <?php
+				          	echo $_SESSION['success'];
+				          	unset($_SESSION['success']);
+				          ?>
+				      	</h3>
+				      </div>
+				  	<?php endif ?>
+
+				    <!-- logged in user information -->
+				    <?php  if (isset($_SESSION['username'])) : ?>
+				    	<p>Welcome <strong><?php echo $_SESSION['username']; ?></strong></p>
+				    	<p> <a href="index.php?logout='1'" style="color: red;">logout</a> </p>
+				    <?php endif ?>
+				</div>
+
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="webApp.js"></script>
