@@ -3,8 +3,9 @@ require('password.php');
 session_start();
 
 // initializing variables
-//$username = "";
+$username = "";
 $password = "";
+
 $errors = array();
 
 // connect to the database
@@ -16,8 +17,8 @@ if (!$db) {
 if (isset($_POST['register'])) {
   // receive all input values from the form
   $username = mysqli_real_escape_string($db, $_POST['username']);
-  $password_1 = ($_POST['pass']);
-  $password_2 = ($_POST['cpass']);
+  $password_1 = mysqli_real_escape_string($db, $_POST['pass']);
+  $password_2 = mysqli_real_escape_string($db,$_POST['cpass']);
   $firstName = mysqli_real_escape_string($db, $_POST['firstName']);
   $middleName = mysqli_real_escape_string($db, $_POST['middleName']);
   $lastName = mysqli_real_escape_string($db, $_POST['lastName']);
@@ -70,44 +71,65 @@ if (isset($_POST['register'])) {
       }
 
     // Now authenticate to make sure the insertion was successful
-    $auth = "SELECT * FROM users WHERE username='$username' AND password='$hashToStoreInDb'";
-  	$results = mysqli_query($db, $auth);
   	if (password_verify($password_1, $hashToStoreInDb)) {
-  	$_SESSION['username'] = $username;
-  	$_SESSION['success'] = "You are now logged in";
-  	header('location: index.php');
+			$_SESSION['username'] = $row['username'];
+			$_SESSION['firstName'] = $row['firstName'];
+			$_SESSION['middleName'] = $row['middleName'];
+			$_SESSION['lastName'] = $row['lastName'];
+			$_SESSION['dateOfBirth'] = $row['dateOfBirth'];
+			$_SESSION['image'] = $row['image'];
+  		$_SESSION['success'] = "You are now logged in";
+  		header('location: login.php?createaccount=success');
+			echo "You have successfully created your account! Login to jump right into Hobby!";
   } else {
     array_push($errors, "Insertion was not successful");
   }
 } else {
   echo "You have made a grave mistake";
 }
+}
 
 // LOGIN USER
 if (isset($_POST['login'])) {
   $username = mysqli_real_escape_string($db, $_POST['username']);
-  $passwordLogin = $_POST['lpass'];
+  $password = mysqli_real_escape_string($db, $_POST['lpass']);
 
-  if (empty($username)) {
-  	array_push($errors, "Username is required");
-  }
-  if (empty($passwordLogin)) {
-  	array_push($errors, "Password is required");
-  }
-
-  if (count($errors) == 0) {
-
-      	 $authLogin = "SELECT password FROM users WHERE username='$username' AND password='$passwordLogin'";
-    	   $resultLogin = mysqli_query($db, $authLogin);
-      	if (password_verify($passwordLogin, $resultLogin)) {
-      	  $_SESSION['username'] = $username;
-      	  $_SESSION['success'] = "You are now logged in";
-      	  header('location: index.php');
-      	} else {
-  		array_push($errors, "Wrong username/password combination");
-    	}
-    }
-  }
+	//Error handlers
+	//Check if inputs are empty
+	if (empty($username) || empty($password)) {
+		header("location: login.php");
+		echo "The Username and Password fields are required";
+		exit();
+	} else {
+		$sql = "SELECT * FROM users WHERE username='$username'";
+		$result = mysqli_query($db, $sql);
+		$resultCheck = mysqli_num_rows($result);
+		if ($resultCheck < 1) {
+			header("location: login.php");
+			echo "This username does not exist";
+			exit();
+		} else {
+			if ($row = mysqli_fetch_assoc($result)) {
+				//De-hashing the password
+				$hashedPasswordCheck = password_verify($password, $row['password']);
+				if ($hashedPasswordCheck == false) {
+					header("location: login.php");
+					echo "This password does not match our records";
+					exit();
+				} elseif ($hashedPasswordCheck == true) {
+						//log in the user here
+						$_SESSION['username'] = $row['username'];
+						$_SESSION['firstName'] = $row['firstName'];
+						$_SESSION['middleName'] = $row['middleName'];
+						$_SESSION['lastName'] = $row['lastName'];
+						$_SESSION['dateOfBirth'] = $row['dateOfBirth'];
+						$_SESSION['image'] = $row['image'];
+						header("location: index.php");
+						exit();
+				}
+			}
+		}
+	}
 }
 
  ?>
